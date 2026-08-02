@@ -3,6 +3,42 @@
 
 This directory contains examples of traditional CrewAI implementations - autonomous agent teams working together to accomplish complex tasks.
 
+Live link - \documentclass[letterpaper,11pt]{article}
+  \resumeItem{Designed a responsive Glassmorphism UI featuring dark/light modes, galleries, and PDF/JSON exports.}
+\resumeItemListEnd
+
+\resumeProjectsHeading
+{{\large\textbf{Productivity Dashboard App}} $|$ \emph{React, Node.js, Express, Tailwind CSS}}{}{\href{https://task-manager-xi-ebon.vercel.app/}{\faLink} \quad \href{https://github.com/siddanthsajwan/Task-Manager}{\faGithub}}
+\resumeItemListStart
+  \resumeItem{Engineered frontend with optimistic updates, reducing perceived UI latency by 80\% for CRUD operations.}
+  \resumeItem{Built an analytics dashboard with custom SVG charts to visualize 5+ real-time productivity metrics.}
+  \resumeItem{Implemented drag-and-drop state management, improving task organization efficiency by 40\%.}
+\resumeItemListEnd
+
+\end{itemize}
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt, parsep=0pt, topsep=1pt]
+\item {
+ \textbf{Languages}: C, C++, JavaScript, HTML5, CSS3, SQL \\ \vspace{2pt}
+ \textbf{Tech Stack}: React, Node.js, Express.js, MySQL, JWT, Tailwind, Tkinter, Vercel, GitHub, VS Code \\ \vspace{2pt}
+ \textbf{Course Work}: Data Structure and Algorithms, OOPS, DBMS, Operating System, Computer Networks
+
+ update the tech stack docker render and all used 
+}
+\end{itemize}
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+\resumeItemListStart
+  \resumeItem{\textbf{Google Cloud Generative AI Certification} \href{https://drive.google.com/file/d/1qbtXt6xE7DhOP8Qpfkac1r-e65-lqxnB/view?usp=drivesdk}{\faLink}}
+  Add my agentic AI certification by oracle here - https://drive.google.com/file/d/1B0DGq4g5sIh12M1o7iG5Nc8eDH5VQVk_/view?usp=drive_link
+  \resumeItem{\textbf{Finalist, 24-Hour Hackathon conducted by the university - Graphethon}}
+\resumeItemListEnd
+
+\end{document}
+
 ## What are CrewAI Crews?
 
 A CrewAI Crew is a team of AI agents, each with specific roles and goals, working together to complete tasks. Key components include:
