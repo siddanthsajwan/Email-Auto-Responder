@@ -1,0 +1,9 @@
+services:
+  email-auto-responder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: email_auto_responder_flow
+    restart: always
+    env_file:
+      - crewAI-examples/flows/email_auto_responder_flow/.env

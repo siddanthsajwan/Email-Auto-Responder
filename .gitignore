@@ -1,0 +1,31 @@
+# Environment variables and secrets (CRITICAL: NEVER COMMIT)
+.env
+.env.*
+*.env
+credentials.json
+token.json
+
+# Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.ruff_cache/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo

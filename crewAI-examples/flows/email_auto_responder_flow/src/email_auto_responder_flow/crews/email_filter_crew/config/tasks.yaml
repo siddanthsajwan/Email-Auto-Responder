@@ -1,0 +1,33 @@
+filter_emails:
+  description: >
+    Analyze the provided batch of emails and filter out non-essential items (newsletters, marketing/promotions, automated notifications, job alerts, and spam).
+    Distinguish real emails directed at the user that require a personal response or action.
+    If none of the emails require action, state clearly: "NO_ACTION_REQUIRED".
+
+    EMAILS
+    -------
+    {emails}
+  expected_output: >
+    A bulleted list containing the actual numeric thread_id, sender, and brief subject/snippet for each email that requires action.
+    If no emails require action, return exactly: "NO_ACTION_REQUIRED".
+  agent: email_filter_agent
+
+action_required_emails:
+  description: >
+    Review the output from the email filtering task.
+    If the output is "NO_ACTION_REQUIRED" or if no action-required emails were identified, do NOT call any tools and immediately return "NO_ACTION_REQUIRED".
+    If action-required emails were identified, use the Get Email Thread tool with the exact numeric thread_id provided (do not make up or guess thread IDs) to fetch context.
+    Summarize the context and key points to address.
+  expected_output: >
+    If no action was required, return "NO_ACTION_REQUIRED".
+    Otherwise, a list containing thread_id, sender, summary of conversation, and main points to address.
+  agent: email_action_agent
+
+draft_responses:
+  description: >
+    Review the analysis of action-required emails.
+    If the previous analysis indicates "NO_ACTION_REQUIRED" or no actionable emails, do NOT call any tools and return "No draft responses needed.".
+    Otherwise, draft tailored, professional responses addressing each query and use the Create Draft tool to save them in Gmail.
+  expected_output: >
+    Confirmation of created drafts or "No draft responses needed."
+  agent: email_response_writer
