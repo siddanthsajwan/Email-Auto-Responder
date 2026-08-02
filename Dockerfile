@@ -11,17 +11,24 @@ WORKDIR /app
 # Install uv for fast, reliable package management
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 
-# Copy project specification files first to leverage Docker layer caching
+# Copy project specification files first for caching dependencies
 COPY crewAI-examples/flows/email_auto_responder_flow/pyproject.toml \
      crewAI-examples/flows/email_auto_responder_flow/uv.lock \
      /app/crewAI-examples/flows/email_auto_responder_flow/
 
-# Install dependencies
 WORKDIR /app/crewAI-examples/flows/email_auto_responder_flow
-RUN uv sync --frozen --no-cache
 
-# Copy the application source code
+# Install dependencies without building the package yet
+RUN uv sync --frozen --no-install-project --no-cache
+
+# Copy the full application source code
 COPY crewAI-examples/flows/email_auto_responder_flow /app/crewAI-examples/flows/email_auto_responder_flow
 
-# Default command to start the continuous email auto-responder flow
+# Install the editable project
+RUN uv sync --frozen --no-cache
+
+# Expose default port
+EXPOSE 10000
+
+# Default command to start the continuous email auto-responder flow and health dashboard
 CMD ["uv", "run", "kickoff"]
